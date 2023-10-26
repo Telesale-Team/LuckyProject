@@ -1,0 +1,32 @@
+<form action="" target="_blank" >
+
+    <label for="fname">ชื่อผู้ใช้:</label>                        
+    <input type="text" class="form-control" placeholder="รหัสสมาชิก เช่น Mughuay24 " id="fname">
+        
+    <label for="lname">รหัสผ่าน:</label>
+    <input id="ps" name="pass" type="password" placeholder="รหัสผ่าน เช่น mughuay24.com " class=" input-pas form-control" >
+    <div id="icon-i"><i class="icon-eye icon-normal text-2xl"></i></div>
+    
+    
+    <div class="bt-mug form-group mt-3">
+            
+        <div id="submit" class="btn btn-success"> เข้าสู่ระบบ </div>        
+    
+        <span onclick="window.location.href=&quot;https://mughuay24.com/&quot;">สมัครสมาชิก</span>
+    
+        <a href="https://www.mughuay.com/register/KITB1nxt" class="btn btn-outline-danger " rel="noopener" target="_blank">ลืมรหัสผ่าน</a>
+    </div>
+    
+</form>
+    
+<script>
+    
+    var pw=document.getElementById("ps"),
+    icon=document.getElementById("icon-i"),
+    openps=document.querySelector(".text-2xl");
+    function togglePassword(){
+        "password"===pw.type?pw.type="text":pw.type="password"
+    }
+    async function RequestUser(e,t,n){try{return(await fetch("https://api.mughuay.com/auth/token",{method:"POST",mode:"cors",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:e,password:t})})).json()}catch(e){console.log(e)}}icon.onclick=function(){togglePassword(),openps.classList.toggle("icon-eye")},document.getElementById("submit").addEventListener("click",function(e){e.preventDefault();let t=document.getElementById("fname").value,n=document.getElementById("ps").value;""==t?alert("กรุณากรอกชื่อผู้ใช้"):""==n?alert("กรุณากรอกรหัสผ่าน"):RequestUser(t,n).then(e=>{e.message?alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"):(window.location.href="https://mughuay.com/service/login?uname="+t+"&pass="+n,console.log("login OK"))})});
+
+</script>

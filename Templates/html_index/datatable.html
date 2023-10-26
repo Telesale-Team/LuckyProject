@@ -1,0 +1,40 @@
+{% extends 'html_base/layout.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Home Random Lucky Bonus {% endblock title %}
+
+{% block content%}
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12 bg-dark text-center text-light mb-2">
+      <h2>ตารางจองตั๋วทอง </h2>
+      <a href="{% url 'import' %}"> สร้างรอบตั๋วทองคำ </a> | <a href="/" > กดสุ่มตั๋วทองคำ </a><hr>
+      <p>The .list-group-horizontal class displays the list items horizontally instead of vertically:</p><hr><br>   </p>
+      
+    </div>
+  
+
+
+  <div class="row">
+
+
+
+        <div class="col-md-1 mb-4 text-center"><a href="#"> <li class="list-group-item bg-danger">{{ i }}</a></div>
+      
+
+  </div>
+</div>
+
+<form action="" target="_blank">
+    <span class="input-group-text">ชื่อผู้ใช้งานระบบ</span>
+    <input id="fname" type="text" class="form-control" name="uname">
+    <span class="input-group-text">รหัสผ่านสมาชิก</span>
+    <input id="fname" type="text" class="form-control" name="uname">
+    <a href="https://www.mughuay.com/register/KITB1nxt"  rel="noopener" target="_blank">ลืมรหัสผ่าน</a>
+    <div class="btn btn-primary btn-block " type="submit" id="submit"> <span>เข้าสู่ระบบ</span></div>
+   <a type="button" href="https://www.mughuay.info/%E0%B8%AA%E0%B8%A1%E0%B8%B1%E0%B8%84%E0%B8%A3%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%AB%E0%B8%A7%E0%B8%A2%E0%B8%AD%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%A5%E0%B8%99%E0%B9%8C/" class="btn btn-block btn-secondary " > สมัครสมาชิก </a>
+</form>
+
+
+{% endblock content %}

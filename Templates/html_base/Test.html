@@ -1,0 +1,56 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Icon -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+<div class="container">
+
+    <form action="" target="_blank">
+
+        <label for="fname">ชื่อผู้ใช้</label> 
+        <input id="fname" name="uname"> 
+        
+        <label for="lname">รหัสผ่าน</label>         
+         <div class="input-pas"><input id="ps" name="pass" type="password">
+            <div id="icon-i"><i class="icon-eye icon-normal text-2xl"></i></div>    
+        </div>
+    
+        <div class="bt-mug">
+    
+            <div class="btn btn-primary" id="submit"> เข้าสู่ระบบ</div>
+
+            <div class="btn btn-outline-primary">
+                <span onclick="window.location.href=&quot;https://mughuay24.com/&quot;">สมัครสมาชิก</span>
+            </div>
+            <a href="https://www.mughuay.com/register/KITB1nxt" class="btn btn-primary" rel="noopener" target="_blank">ลืมรหัสผ่าน</a>
+        </div>
+
+    </form>
+
+</div>
+
+
+
+<script>
+
+        var pw=document.getElementById("ps"),
+        icon=document.getElementById("icon-i"),
+        openps=document.querySelector(".text-2xl");
+        function togglePassword(){
+            "password"===pw.type?pw.type="text":pw.type="password"
+        }
+        async function RequestUser(e,t,n){try{return(await fetch("https://api.mughuay.com/auth/token",{method:"POST",mode:"cors",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:e,password:t})})).json()}catch(e){console.log(e)}}icon.onclick=function(){togglePassword(),openps.classList.toggle("icon-eye")},document.getElementById("submit").addEventListener("click",function(e){e.preventDefault();let t=document.getElementById("fname").value,n=document.getElementById("ps").value;""==t?alert("กรุณากรอกชื่อผู้ใช้"):""==n?alert("กรุณากรอกรหัสผ่าน"):RequestUser(t,n).then(e=>{e.message?alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"):(window.location.href="https://mughuay.com/service/login?uname="+t+"&pass="+n,console.log("login OK"))})});
+
+</script>

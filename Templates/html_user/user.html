@@ -1,0 +1,24 @@
+{% extends 'html_base/layout.html' %}
+
+{% block title %} User Profile {% endblock title %}
+
+{% block content%}
+<div class="container">
+    <div class="row">
+        {% for user in user_profile %}
+        <div class="col-xs-4">        
+            <div class="card border-primary">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Title</h4>
+                <p class="card-text">{{ user }}</p>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock content %}

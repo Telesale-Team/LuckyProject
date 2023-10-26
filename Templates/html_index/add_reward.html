@@ -1,0 +1,62 @@
+{% extends 'html_base/layout.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Import Data {% endblock title %}
+
+
+
+{% block content%}
+
+<style>
+
+	.centered {
+	  position: absolute;
+    font-size: 100px;
+	  top: 51%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	}
+	
+	.textAlignVer{
+    position:absolute;
+    top: 28%;
+    left: 79%;
+    transform: rotate(-90deg); 
+    font-size:60px;
+	}
+
+</style>
+
+
+<div class="container ">	 
+  <div class="row">
+  <form action="/save-data" method="POST">
+    {% csrf_token %}
+    {% for i in round %}
+    <h3><strong>รอบที่ {{ i.name }}</strong> </h3>
+    <p style="color: darkgray;">งวดประจำวันที่ {{ i.date }}</p>
+
+    <div class="col-md-12 mt-2 ">
+      <img src="{{ i.image.url }}" style="width:100%;">
+      <h1 class="display-1 centered">{%for numbers in data%}{{ numbers}}{% endfor %}</h1>
+    </div>
+   
+
+    <div class="col-md-4">
+      <button type="text" class="btn btn-success btn-block">Random</button>
+    </div>
+    <div class="col-md-4">
+      <button type="submit" class="btn btn-primary btn-block">Save</button>
+    </div>
+    <div class="col-md-4">
+      <button type="reset" class="btn btn-secondary btn-block">cancel</button>
+    </div>
+
+      
+
+  </form>
+  {% endfor %}
+</div>
+
+  
+
+{% endblock content%}

@@ -1,0 +1,21 @@
+{% extends 'html_base/layout.html' %}
+
+{% block title %} Import Data {% endblock title %}
+
+
+
+{% block content%}
+<div class="container">
+    <div class="row">
+      {% for i in Data %}
+      <div class="col-md-1 mb-4 text-center">
+        <a href="{% url 'add-reward' i.no %}"> <li class="list-group-item">{{ i.no }} </a>
+      </div>
+      {% endfor %}
+    </div>
+</div>
+
+
+      
+
+{% endblock content%}

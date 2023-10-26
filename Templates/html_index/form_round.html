@@ -1,0 +1,19 @@
+{% extends 'html_base/layout.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Import Data {% endblock title %}
+
+
+{% block content%}
+<p>test</p>
+
+
+<form action="" method="post">
+  {% csrf_token %}
+  
+  {{ form |crispy }}
+  <hr>
+  <input type="submit" value="ลงทะเบียน" class="btn btn-success btn-block ">
+  
+</form>
+
+{% endblock content%}

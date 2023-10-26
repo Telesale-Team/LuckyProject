@@ -1,0 +1,77 @@
+{% extends 'html_base/layout.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Home Random Lucky Bonus {% endblock title %}
+{% load static %}
+{% block content%}
+
+<style>
+	
+	.centered {
+	  position: absolute;
+	  top: 53%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	}
+	
+	.textAlignVer{
+		position:absolute;
+		top: 42%;
+		left: 63%;
+		transform: rotate(-90deg); 
+
+	}
+
+</style>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<div class="card">
+			  <div class="card-body bg-dark">
+
+				<h3 class="text-center text-light">  ตั๋วทองคำ Mughuay </h3>
+				<a href="{%url 'data-teble'%}"> <i class="bi bi-list"></i> ตารางประจำงวด</a><br><br>
+				<span class="badge badge-secondary"> ประจำงวดวันที่ 05 ตุลาคม 2566 </span>	
+				
+			  </div>
+			</div>		
+		</div>
+	</div> 
+</div>
+<br>
+
+<form action="#" method="post" enctype="multipart/form-data" >
+	{% csrf_token %}
+	<div class="container">
+		<div class="row">
+			{% for round_data in round %}
+			
+			<div class="col-md-12">
+				<img src="{{ round_data.image.url }}" style="width:100%;">
+				<h4 class="display-2 centered"> <strong > {{ data }} </strong> </h4></div>
+			</div>
+
+			<div class="col-md-12 mt-4">
+				<a href="{% url 'home'%}" class="btn btn-success"><i class="bi bi-arrow-repeat"></i> ซุ่มผลรางวัล </a>
+				<button type="submit" class="btn btn-primary"><i class="bi bi-download"></i> ลงทะเบียน</button>
+				<button type="reset" class="btn btn-secondary">&nbsp;<i class="bi bi-x-lg"></i> ยกเลิก &nbsp;&nbsp;</button>
+			</div>
+			{% endfor %}
+			
+		</div>
+	</div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
